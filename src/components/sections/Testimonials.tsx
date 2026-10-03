@@ -1,12 +1,6 @@
-"use client";
-
-import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import { Star, Quote } from "lucide-react";
 import type { CardConfig } from "@/types/card";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Card } from "@/components/ui/Card";
-import { cn } from "@/lib/utils";
+import { Star } from "lucide-react";
 
 interface TestimonialsProps {
   config: CardConfig;
@@ -14,65 +8,30 @@ interface TestimonialsProps {
 
 export function Testimonials({ config }: TestimonialsProps) {
   const { sectionTitles, testimonials } = config;
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const next = useCallback(() => {
-    setIndex((i) => (i + 1) % testimonials.length);
-  }, [testimonials.length]);
-
-  useEffect(() => {
-    if (paused || testimonials.length <= 1) return;
-    const id = setInterval(next, 4000);
-    return () => clearInterval(id);
-  }, [paused, next, testimonials.length]);
-
-  const current = testimonials[index] ?? testimonials[0];
 
   return (
-    <section className="px-5 mt-8">
-      <SectionTitle title={sectionTitles.testimonials} />
-      <Card
-        className="relative overflow-hidden"
-        onTouchStart={() => setPaused(true)}
-        onTouchEnd={() => setPaused(false)}
-      >
-        <Quote className="absolute top-4 right-4 size-10 text-brand/10" />
-        <div className="flex items-center gap-3 mb-3">
-          <div className="relative w-10 h-10 rounded-full overflow-hidden">
-            <Image
-              src={current.avatar}
-              alt={current.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-charcoal">{current.name}</p>
-            <div className="flex gap-0.5 mt-0.5">
-              {Array.from({ length: current.rating }).map((_, i) => (
-                <Star key={i} className="size-3.5 fill-accent text-accent" />
-              ))}
+    <section id="testimonials" className="bg-dark-forest text-white">
+      <div className="px-5 py-14 sm:py-16">
+        <SectionTitle title={sectionTitles.testimonials} subtitle="What our clients say about their experience." align="center" />
+        <div className="flex flex-col gap-4">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="bg-white/5 rounded-xl p-5 border border-white/10">
+              <div className="flex gap-1 mb-3">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="size-3.5 fill-champagne text-champagne" />
+                ))}
+              </div>
+              <p className="text-sm text-white/90 leading-relaxed italic">
+                &ldquo;{testimonial.text}&rdquo;
+              </p>
+              <div className="mt-4 pt-3 border-t border-white/10">
+                <p className="text-sm font-semibold text-white">{testimonial.name}</p>
+                <p className="text-[11px] text-white/50 mt-0.5">Verified Client</p>
+              </div>
             </div>
-          </div>
-        </div>
-        <p className="text-sm text-charcoal/70 leading-relaxed italic">
-          &quot;{current.text}&quot;
-        </p>
-        <div className="mt-4 flex items-center justify-center gap-2">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={cn(
-                "size-2 rounded-full transition-all duration-200",
-                i === index ? "bg-brand w-6" : "bg-charcoal/20",
-              )}
-              aria-label={`View testimonial ${i + 1}`}
-            />
           ))}
         </div>
-      </Card>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Diamond } from "lucide-react";
 
 interface SectionTitleProps {
   title: string;
@@ -18,18 +17,17 @@ export function SectionTitle({
   return (
     <div
       className={cn(
-        "mb-8",
+        "mb-10 sm:mb-12",
         align === "center" && "text-center",
         align === "left" && "text-left",
         className,
       )}
     >
-      <h2 className="font-heading text-2xl font-bold text-charcoal">{title}</h2>
-      <div className="ornament mt-3">
-        <Diamond className="ornament-icon size-3.5" />
-      </div>
+      <h2 className="font-heading text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
+        {title}
+      </h2>
       {subtitle && (
-        <p className="mt-3 text-sm text-charcoal/60">{subtitle}</p>
+        <p className="mt-3 text-base text-muted max-w-2xl mx-auto">{subtitle}</p>
       )}
     </div>
   );

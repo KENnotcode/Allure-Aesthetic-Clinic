@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${poppins.variable} h-full`}
     >
-      <body className="min-h-dvh bg-surface text-charcoal font-body antialiased">
+      <body className="min-h-dvh bg-warm-ivory text-charcoal font-body antialiased">
         {children}
       </body>
     </html>

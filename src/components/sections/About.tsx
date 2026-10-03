@@ -1,7 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
-import { ChevronDown, Quote } from "lucide-react";
+import Image from "next/image";
 import type { CardConfig } from "@/types/card";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
@@ -10,35 +7,43 @@ interface AboutProps {
 }
 
 export function About({ config }: AboutProps) {
-  const [expanded, setExpanded] = useState(false);
-  const { sectionTitles } = config;
-  const bio = config.profile.bio;
-  const isLong = bio.length > 120;
+  const { sectionTitles, profile } = config;
 
   return (
-    <section className="px-5 mt-8">
-      <SectionTitle title={sectionTitles.about} />
-      <div className="relative bg-white/70 backdrop-blur rounded-3xl p-5 shadow-xs border border-white/60 overflow-hidden">
-        <Quote className="absolute top-4 right-4 size-10 text-brand/10" />
-        <div className="border-l-4 border-brand pl-4">
-          <div
-            className="text-sm text-charcoal/80 leading-relaxed transition-all duration-300"
-            style={{ maxHeight: expanded || !isLong ? "500px" : "4.5rem", overflow: "hidden" }}
-          >
-            {bio}
+    <section id="about" className="bg-warm-ivory">
+      <div className="px-5 py-14 sm:py-16">
+        <div className="grid grid-cols-1 gap-8 items-center">
+          <div>
+            <SectionTitle title={sectionTitles.about} subtitle="Aesthetic care, approached with intention." align="left" />
+            <p className="text-base text-charcoal/75 leading-relaxed mt-6">
+              {profile.bio}
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              <div>
+                <p className="font-heading text-2xl font-bold text-brand">15+</p>
+                <p className="mt-1 text-[10px] text-muted uppercase tracking-wide">Years Experience</p>
+              </div>
+              <div>
+                <p className="font-heading text-2xl font-bold text-brand">500+</p>
+                <p className="mt-1 text-[10px] text-muted uppercase tracking-wide">Treatments</p>
+              </div>
+              <div>
+                <p className="font-heading text-2xl font-bold text-brand">100%</p>
+                <p className="mt-1 text-[10px] text-muted uppercase tracking-wide">Personalized</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+              <Image
+                src={profile.cover}
+                alt="Allure Aesthetic Clinic interior"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
-        {isLong && (
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand"
-          >
-            {expanded ? "Read less" : "Read more"}
-            <ChevronDown
-              className={`size-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-            />
-          </button>
-        )}
       </div>
     </section>
   );

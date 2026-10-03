@@ -66,6 +66,7 @@ export interface Location {
   address: string;
   hours: string;
   mapUrl: string;
+  timezone?: string;
 }
 
 export interface FormField {
