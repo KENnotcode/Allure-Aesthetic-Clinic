@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 interface SectionTitleProps {
   title: string;
   subtitle?: string;
+  eyebrow?: string;
   align?: "left" | "center";
   className?: string;
 }
@@ -11,6 +12,7 @@ interface SectionTitleProps {
 export function SectionTitle({
   title,
   subtitle,
+  eyebrow,
   align = "center",
   className,
 }: SectionTitleProps) {
@@ -23,11 +25,16 @@ export function SectionTitle({
         className,
       )}
     >
+      {eyebrow && (
+        <p className="text-xs font-semibold text-champagne uppercase tracking-[0.2em] mb-3">
+          {eyebrow}
+        </p>
+      )}
       <h2 className="font-heading text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-base text-muted max-w-2xl mx-auto">{subtitle}</p>
+        <p className={cn("mt-3 text-base text-muted max-w-2xl", align === "center" && "mx-auto")}>{subtitle}</p>
       )}
     </div>
   );

@@ -5,6 +5,7 @@ export interface Profile {
   avatar: string;
   cover: string;
   bio: string;
+  clinicName?: string;
 }
 
 export interface Contact {
@@ -12,12 +13,6 @@ export interface Contact {
   email: string;
   website: string;
   address?: string;
-}
-
-export interface SocialLink {
-  platform: string;
-  url: string;
-  icon: string;
 }
 
 export interface Service {
@@ -77,11 +72,6 @@ export interface FormField {
   required: boolean;
 }
 
-export interface QrData {
-  url: string;
-  vCard: string;
-}
-
 export interface SectionTitles {
   about: string;
   services: string;
@@ -96,7 +86,6 @@ export interface SectionTitles {
 export interface Sections {
   hero: boolean;
   contactActions: boolean;
-  socialLinks: boolean;
   about: boolean;
   services: boolean;
   offers: boolean;
@@ -111,7 +100,6 @@ export interface CardConfig {
   profile: Profile;
   contact: Contact;
   primaryCta: string;
-  socials: SocialLink[];
   services: Service[];
   offers: Offer[];
   process: ProcessStep[];
@@ -119,7 +107,6 @@ export interface CardConfig {
   testimonials: Testimonial[];
   locations: Location[];
   formFields: FormField[];
-  qr: QrData;
   sectionTitles: SectionTitles;
   sections: Sections;
   footerText: string;

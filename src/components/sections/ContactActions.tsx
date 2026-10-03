@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, MessageSquare, Calendar } from "lucide-react";
+import { Phone, MessageSquare, Calendar, Contact } from "lucide-react";
 import type { CardConfig } from "@/types/card";
 import { Button } from "@/components/ui/Button";
 import { generateVCard, downloadVCard } from "@/lib/vcard";
@@ -26,17 +26,12 @@ export function ContactActions({ config }: ContactActionsProps) {
   return (
     <section className="px-5 mt-6">
       <div className="flex flex-col gap-3">
-        <Button
-          fullWidth
-          size="lg"
-          variant="primary"
-          onClick={handleSaveContact}
-        >
-          <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a4 4 0 011.5-8.5A4 4 0 0112 8a4 4 0 018 4 4 4 0 01-2.5 5.5" />
-          </svg>
-          Save Contact Details
-        </Button>
+        <a href="#booking" className="block">
+          <Button fullWidth size="lg" variant="primary">
+            <Calendar className="size-5" />
+            {primaryCta}
+          </Button>
+        </a>
         <div className="grid grid-cols-2 gap-3">
           <a href={`tel:${contact.phone}`} className="block">
             <Button fullWidth variant="secondary">
@@ -51,12 +46,15 @@ export function ContactActions({ config }: ContactActionsProps) {
             </Button>
           </a>
         </div>
-        <a href="#booking" className="block">
-          <Button fullWidth size="lg" variant="primary">
-            <Calendar className="size-5" />
-            {primaryCta}
-          </Button>
-        </a>
+        <Button
+          fullWidth
+          size="md"
+          variant="ghost"
+          onClick={handleSaveContact}
+        >
+          <Contact className="size-4" />
+          Save Contact Details
+        </Button>
       </div>
     </section>
   );

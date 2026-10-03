@@ -43,8 +43,8 @@ export function BookingForm({ config }: BookingFormProps) {
     <section id="booking" className="bg-warm-ivory">
       <div className="px-5 py-14 sm:py-16">
         <div className="flex flex-col gap-5">
-          <SectionTitle title={sectionTitles.booking} subtitle="Let&apos;s discuss your aesthetic goals." />
-          <div className="bg-white rounded-xl p-5 sm:p-6">
+          <SectionTitle title={sectionTitles.booking} subtitle="Let&apos;s discuss your aesthetic goals." align="left" eyebrow="Book a Consultation" />
+          <div className="bg-white rounded-xl p-5 sm:p-6 border border-charcoal/5">
             {submitted ? (
               <div className="py-10 text-center">
                 <p className="text-lg font-semibold text-brand">

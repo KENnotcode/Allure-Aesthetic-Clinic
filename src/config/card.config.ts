@@ -2,6 +2,7 @@ import type { CardConfig } from "@/types/card";
 
 export const cardConfig: CardConfig = {
   profile: {
+    clinicName: "Allure Aesthetic Clinic",
     name: "Gregorio V. Cano",
     title: "Aesthetic Practitioner",
     tagline: "Natural-looking results. Personalized aesthetic care.",
@@ -17,12 +18,6 @@ export const cardConfig: CardConfig = {
     address: "Calbayog City, Samar",
   },
   primaryCta: "Book Consultation",
-  socials: [
-    { platform: "Instagram", url: "https://instagram.com/allureclinic", icon: "Instagram" },
-    { platform: "Facebook", url: "https://facebook.com/allureclinic", icon: "Facebook" },
-    { platform: "TikTok", url: "https://tiktok.com/@allureclinic", icon: "Tiktok" },
-    { platform: "YouTube", url: "https://youtube.com/@allureclinic", icon: "Youtube" },
-  ],
   services: [
     {
       id: "s1",
@@ -160,10 +155,6 @@ export const cardConfig: CardConfig = {
     { name: "location", label: "Preferred Location", type: "select", placeholder: "Select a location", required: true },
     { name: "date", label: "Preferred Date", type: "date", placeholder: "", required: true },
   ],
-  qr: {
-    url: "https://www.allureclinic.com",
-    vCard: "BEGIN:VCARD\nVERSION:3.0\nFN:Gregorio V. Cano\nTITLE:Allure Aesthetic Clinic\nTEL:+1-555-0142\nEMAIL:hello@allureclinic.com\nEND:VCARD",
-  },
   sectionTitles: {
     about: "About Allure",
     services: "Services",
@@ -177,7 +168,6 @@ export const cardConfig: CardConfig = {
   sections: {
     hero: true,
     contactActions: true,
-    socialLinks: false,
     about: true,
     services: true,
     offers: true,

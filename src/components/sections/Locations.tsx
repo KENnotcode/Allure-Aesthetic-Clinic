@@ -57,19 +57,19 @@ export function Locations({ config }: LocationsProps) {
   return (
     <section id="locations" className="bg-white">
       <div className="px-5 py-14 sm:py-16">
-        <SectionTitle title={sectionTitles.locations} subtitle="Visit us at one of our convenient locations." />
+        <SectionTitle title={sectionTitles.locations} subtitle="Visit us at one of our convenient locations." align="left" eyebrow="Our Locations" />
         <div className="flex flex-col gap-4">
           {locations.map((location) => {
             const isOpen = openStates[location.id] ?? false;
             return (
-              <div key={location.id} className="bg-warm-ivory rounded-xl p-5">
+              <div key={location.id} className="border border-charcoal/10 rounded-xl p-5">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-heading text-lg font-bold text-charcoal">
                     {location.name}
                   </h3>
                   <span
                     className={`shrink-0 text-[11px] font-semibold px-2 py-1 rounded-md ${
-                      isOpen ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
+                      isOpen ? "bg-brand/10 text-brand" : "bg-charcoal/5 text-charcoal/60"
                     }`}
                   >
                     {isOpen ? "Open" : "Closed"}

@@ -10,7 +10,7 @@ export function Hero({ config }: HeroProps) {
   const { profile } = config;
   return (
     <section className="w-full px-5 mt-6">
-      <div className="bg-white rounded-4xl overflow-hidden shadow-sm shadow-charcoal/5">
+      <div className="bg-white rounded-4xl overflow-hidden">
         <div className="relative">
           <div className="relative w-full h-44">
             <Image
@@ -20,9 +20,8 @@ export function Hero({ config }: HeroProps) {
               className="object-cover object-center"
               priority
             />
-            <div className="absolute inset-0 bg-linear-to-trom-black/40 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
           </div>
-
         </div>
 
         <div className="px-5 pb-6 -mt-16">
@@ -47,13 +46,18 @@ export function Hero({ config }: HeroProps) {
           </div>
 
           <div className="text-center mt-5">
-            <h1 className="font-heading text-2xl font-bold text-charcoal tracking-tight">
+            {profile.clinicName && (
+              <p className="text-xs font-semibold text-champagne uppercase tracking-[0.2em] mb-1">
+                {profile.clinicName}
+              </p>
+            )}
+            <h1 className="font-heading text-3xl font-bold text-charcoal tracking-tight">
               {profile.name}
             </h1>
             <p className="mt-1.5 text-sm text-brand font-semibold tracking-widest uppercase">
               {profile.title}
             </p>
-            <p className="mt-2 text-sm text-muted italic max-w-70 mx-auto leading-relaxed">
+            <p className="mt-3 text-sm text-muted italic max-w-70 mx-auto leading-relaxed">
               {profile.tagline}
             </p>
           </div>
