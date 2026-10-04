@@ -156,7 +156,7 @@ export const cardConfig: CardConfig = {
   ],
   formFields: [
     { name: "name", label: "Full Name", type: "text", placeholder: "Your full name", required: true },
-    { name: "phone", label: "Phone Number", type: "tel", placeholder: "+1-555-0000", required: true },
+    { name: "phone", label: "Phone Number", type: "tel", placeholder: "+63 9XX XXX YYYY", required: true },
     { name: "location", label: "Preferred Location", type: "select", placeholder: "Select a location", required: true },
     { name: "date", label: "Preferred Date", type: "date", placeholder: "", required: true },
   ],
