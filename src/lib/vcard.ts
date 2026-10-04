@@ -1,6 +1,7 @@
 export function generateVCard(config: {
   name: string;
   title: string;
+  org: string;
   phone: string;
   email: string;
   website: string;
@@ -9,9 +10,10 @@ export function generateVCard(config: {
     "BEGIN:VCARD",
     "VERSION:3.0",
     `FN:${config.name}`,
+    `ORG:${config.org}`,
     `TITLE:${config.title}`,
-    `TEL:${config.phone}`,
-    `EMAIL:${config.email}`,
+    `TEL;TYPE=WORK:${config.phone}`,
+    `EMAIL;TYPE=HOME:${config.email}`,
     `URL:${config.website}`,
     "END:VCARD",
   ];

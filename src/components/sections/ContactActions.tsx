@@ -3,7 +3,6 @@
 import { Phone, MessageSquare, Calendar, Contact } from "lucide-react";
 import type { CardConfig } from "@/types/card";
 import { Button } from "@/components/ui/Button";
-import { generateVCard, downloadVCard } from "@/lib/vcard";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 interface ContactActionsProps {
@@ -12,17 +11,6 @@ interface ContactActionsProps {
 
 export function ContactActions({ config }: ContactActionsProps) {
   const { contact, primaryCta, socials } = config;
-
-  const handleSaveContact = () => {
-    const vCard = generateVCard({
-      name: config.profile.name,
-      title: config.profile.title,
-      phone: contact.phone,
-      email: contact.email,
-      website: contact.website,
-    });
-    downloadVCard(vCard, `${config.profile.name.replace(/\s+/g, "_")}.vcf`);
-  };
 
   const iconMap: Record<string, React.ElementType> = {
     Facebook: FaFacebook,
@@ -53,16 +41,17 @@ export function ContactActions({ config }: ContactActionsProps) {
             </Button>
           </a>
         </div>
-        <Button
-          fullWidth
-          size="md"
-          variant="ghost"
-          onClick={handleSaveContact}
-          className="bg-white border-2 border-gray-200"
-        >
-          <Contact className="size-6 text-charcoal" />
-          Save Contact Details
-        </Button>
+        <a href="/api/contact.vcf" download className="block">
+          <Button
+            fullWidth
+            size="md"
+            variant="ghost"
+            className="bg-white border-2 border-gray-200"
+          >
+            <Contact className="size-6 text-charcoal" />
+            Save Contact Details
+          </Button>
+        </a>
         {socials.length > 0 && (
           <div className="flex items-center justify-center gap-8 pt-6">
             {socials.map((social) => {
