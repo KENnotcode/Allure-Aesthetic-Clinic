@@ -23,7 +23,7 @@ export const cardConfig: CardConfig = {
 
     { platform: "Instagram", url: "https://instagram.com/allurestudioaestheticclinic", icon: "Instagram" },
 
-    { platform: "TikTok", url: "https://tiktok.com/@@allure.studio.aesthetics", icon: "Tiktok" },
+    { platform: "TikTok", url: "https://tiktok.com/@allure.studio.aesthetics", icon: "Tiktok" },
   ],
   services: [
     {
@@ -118,24 +118,34 @@ export const cardConfig: CardConfig = {
   testimonials: [
     {
       id: "t1",
-      name: "Emily R.",
-      text: "Incredibly professional and attentive. The results exceeded my expectations and the whole experience was so relaxing.",
+      name: "Jeffrey Leopardas Sumayang",
+      text: `Just one week after my first Collagen Induction Therapy session, OMG, I’m already seeing and feeling the difference!
+      I wasn’t expecting results this fast, pero here they are:
+      -Wrinkles around my eyes? Softer and less visible na.
+      -Fine lines? Fading.
+      -My pores na previously were super huge (si OA)? Definitely tighter na this time (this is my main concern talaga)
+      -And the redness on my acne marks? Calmed down na.
+      I don’t know if it’s placebo or legit effect na talaga san therapy, but either way—I’m happy and now feeling more confident, and that’s what counts.
+      Can’t wait for the next 4 sessions!`,
       rating: 5,
-      avatar: "https://picsum.photos/seed/avatar2/100/100",
+      avatar: "/assets/TestimonialsProfile/1.jpg",
+      reviewDate: "July 21, 2025",
     },
     {
       id: "t2",
-      name: "Michael T.",
-      text: "I finally feel like myself again. The team took the time to understand exactly what I wanted and delivered beautifully.",
+      name: "Sandrah June",
+      text: "Top-notch customer service! Everyone was welcoming and professional. A special thank you to Xyriel for doing an amazing job on my Diamond Premiere. My friends and I are already planning our next visit!",
       rating: 5,
-      avatar: "https://picsum.photos/seed/avatar3/100/100",
+      avatar: "/assets/TestimonialsProfile/2.jpg",
+      reviewDate: "November 26, 2024",
     },
     {
       id: "t3",
       name: "Jessica L.",
       text: "The atmosphere is luxurious and calming. Every visit feels like a retreat. Highly recommend to anyone considering treatment.",
-      rating: 5,
+      rating: 4,
       avatar: "https://picsum.photos/seed/avatar4/100/100",
+      reviewDate: "Sep 15, 2026",
     },
   ],
   locations: [

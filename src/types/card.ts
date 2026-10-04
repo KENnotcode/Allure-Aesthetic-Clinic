@@ -59,6 +59,7 @@ export interface Testimonial {
   text: string;
   rating: number;
   avatar: string;
+  reviewDate?: string;
 }
 
 export interface Location {
