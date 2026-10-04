@@ -9,43 +9,56 @@ interface LocationsProps {
   config: CardConfig;
 }
 
+function getOpenState(location: { hours: string; timezone?: string }): boolean {
+  const tz = location.timezone || "Asia/Manila";
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: tz,
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
+  });
+  const parts = formatter.formatToParts(now);
+  const hour = parseInt(parts.find((p) => p.type === "hour")?.value || "0", 10);
+  const minute = parseInt(parts.find((p) => p.type === "minute")?.value || "0", 10);
+  const currentMinutes = hour * 60 + minute;
+
+  const lower = location.hours.toLowerCase();
+  const match = lower.match(/(\d{1,2}(?::\d{2})?(?:am|pm))\s*-\s*(\d{1,2}(?::\d{2})?(?:am|pm))/i);
+  if (!match) return true;
+
+  const toMinutes = (str: string) => {
+    const s = str.toLowerCase().trim();
+    const timeMatch = s.match(/^(\d{1,2})(?::(\d{2}))?(am|pm)$/);
+    if (!timeMatch) return 0;
+    const h = parseInt(timeMatch[1], 10);
+    const m = timeMatch[2] ? parseInt(timeMatch[2], 10) : 0;
+    const mod = timeMatch[3];
+    if (mod === "pm" && h !== 12) return h * 60 + m + 720;
+    if (mod === "am" && h === 12) return m || 0;
+    return h * 60 + m;
+  };
+
+  const start = toMinutes(match[1]);
+  const end = toMinutes(match[2]);
+  return currentMinutes >= start && currentMinutes < end;
+}
+
 export function Locations({ config }: LocationsProps) {
   const { sectionTitles, locations } = config;
-  const [openStates, setOpenStates] = React.useState<Record<string, boolean>>({});
+  const [openStates, setOpenStates] = React.useState<Record<string, boolean>>(() => {
+    const states: Record<string, boolean> = {};
+    locations.forEach((location) => {
+      states[location.id] = getOpenState(location);
+    });
+    return states;
+  });
 
   React.useEffect(() => {
     const computeOpen = () => {
       const states: Record<string, boolean> = {};
       locations.forEach((location) => {
-        const tz = location.timezone || "Asia/Manila";
-        const now = new Date();
-        const formatter = new Intl.DateTimeFormat("en-US", {
-          timeZone: tz,
-          hour: "numeric",
-          minute: "numeric",
-          hour12: false,
-        });
-        const parts = formatter.formatToParts(now);
-        const hour = parseInt(parts.find((p) => p.type === "hour")?.value || "0", 10);
-        const minute = parseInt(parts.find((p) => p.type === "minute")?.value || "0", 10);
-        const currentMinutes = hour * 60 + minute;
-        const lower = location.hours.toLowerCase();
-        const match = lower.match(/(\d{1,2}(?:am|pm))\s*-\s*(\d{1,2}(?:am|pm))/i);
-        if (!match) {
-          states[location.id] = true;
-          return;
-        }
-        const toMinutes = (str: string) => {
-          const s = str.toLowerCase();
-          const [hm, mod] = s.includes("am") ? s.split("am") : s.split("pm");
-          const [h, m] = hm.trim().split(":").map(Number);
-          if (mod === "pm" && h !== 12) return h * 60 + (m || 0) + 720;
-          if (mod === "am" && h === 12) return m || 0;
-          return h * 60 + (m || 0);
-        };
-        const start = toMinutes(match[1]);
-        const end = toMinutes(match[2]);
-        states[location.id] = currentMinutes >= start && currentMinutes < end;
+        states[location.id] = getOpenState(location);
       });
       setOpenStates(states);
     };
@@ -57,7 +70,7 @@ export function Locations({ config }: LocationsProps) {
   return (
     <section id="locations" className="bg-white">
       <div className="px-5 py-14 sm:py-16">
-        <SectionTitle title={sectionTitles.locations} subtitle="Visit us at one of our convenient locations." align="left" eyebrow="Our Locations" />
+        <SectionTitle title={sectionTitles.locations} subtitle="Visit us at one of our convenient locations." align="left" eyebrow="Locations" />
         <div className="flex flex-col gap-4">
           {locations.map((location) => {
             const isOpen = openStates[location.id] ?? false;
