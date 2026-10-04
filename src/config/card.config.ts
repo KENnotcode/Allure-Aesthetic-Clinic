@@ -12,15 +12,17 @@ export const cardConfig: CardConfig = {
       "With over 15 years of experience in medical aesthetics, Gregorio combines advanced techniques with an artistic eye to deliver personalized treatments that enhance your natural beauty. Every treatment plan is tailored to your unique goals, ensuring results that look and feel like you.",
   },
   contact: {
-    phone: "+1-555-0142",
-    email: "hello@allureclinic.com",
-    website: "https://www.allureclinic.com",
-    address: "Calbayog City, Samar",
+    phone: "+63 994 712 4686",
+    email: "allurestudioaestheticclinic@gmail.com",
+    website: "https://www.facebook.com/AllureStudioCalbayog",
+    address: "Nijaga Street, corner Umbria Street",
   },
   primaryCta: "Book Consultation",
   socials: [
     { platform: "Facebook", url: "https://www.facebook.com/AllureStudioCalbayog", icon: "Facebook" },
+    
     { platform: "Instagram", url: "https://instagram.com/allurestudioaestheticclinic", icon: "Instagram" },
+
     { platform: "TikTok", url: "https://tiktok.com/@@allure.studio.aesthetics", icon: "Tiktok" },
   ],
   services: [
