@@ -45,9 +45,9 @@ export function Hero({ config }: HeroProps) {
             </div>
           </div>
 
-          <div className="text-center mt-5">
+          <div className="text-center mt-4">
             {profile.clinicName && (
-              <p className="text-xs font-semibold text-champagne uppercase tracking-[0.2em] mb-1">
+              <p className="text-xs font-semibold text-champagne uppercase tracking-[0.2em] mb-5">
                 {profile.clinicName}
               </p>
             )}

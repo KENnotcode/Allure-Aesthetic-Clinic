@@ -15,6 +15,12 @@ export interface Contact {
   address?: string;
 }
 
+export interface SocialLink {
+  platform: string;
+  url: string;
+  icon: string;
+}
+
 export interface Service {
   id: string;
   title: string;
@@ -86,6 +92,7 @@ export interface SectionTitles {
 export interface Sections {
   hero: boolean;
   contactActions: boolean;
+  socialLinks: boolean;
   about: boolean;
   services: boolean;
   offers: boolean;
@@ -100,6 +107,7 @@ export interface CardConfig {
   profile: Profile;
   contact: Contact;
   primaryCta: string;
+  socials: SocialLink[];
   services: Service[];
   offers: Offer[];
   process: ProcessStep[];

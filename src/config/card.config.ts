@@ -4,7 +4,7 @@ export const cardConfig: CardConfig = {
   profile: {
     clinicName: "Allure Aesthetic Clinic",
     name: "Gregorio V. Cano",
-    title: "Aesthetic Practitioner",
+    title: "Owner",
     tagline: "Natural-looking results. Personalized aesthetic care.",
     avatar: "/assets/Profile.jpg",
     cover: "/assets/Bg.jpg",
@@ -18,6 +18,11 @@ export const cardConfig: CardConfig = {
     address: "Calbayog City, Samar",
   },
   primaryCta: "Book Consultation",
+  socials: [
+    { platform: "Facebook", url: "https://www.facebook.com/AllureStudioCalbayog", icon: "Facebook" },
+    { platform: "Instagram", url: "https://instagram.com/allurestudioaestheticclinic", icon: "Instagram" },
+    { platform: "TikTok", url: "https://tiktok.com/@@allure.studio.aesthetics", icon: "Tiktok" },
+  ],
   services: [
     {
       id: "s1",
@@ -168,6 +173,7 @@ export const cardConfig: CardConfig = {
   sections: {
     hero: true,
     contactActions: true,
+    socialLinks: true,
     about: true,
     services: true,
     offers: true,
