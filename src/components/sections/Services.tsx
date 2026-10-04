@@ -18,7 +18,7 @@ export function Services({ config }: ServicesProps) {
           {services.map((service, idx) => (
             <div key={service.id} className={cn("py-6", idx < services.length - 1 && "border-b border-charcoal/10")}>
               <div className="flex flex-col sm:flex-row gap-5 sm:gap-8">
-                <div className="relative w-full sm:w-48 aspect-[4/3] sm:aspect-[3/4] rounded-xl overflow-hidden shrink-0">
+                <div className="relative w-full sm:w-48 aspect-4/3 sm:aspect-3/4 rounded-xl overflow-hidden shrink-0">
                   <Image
                     src={service.image}
                     alt={service.title}

@@ -7,6 +7,7 @@ interface SectionTitleProps {
   eyebrow?: string;
   align?: "left" | "center";
   className?: string;
+  titleClassName?: string;
 }
 
 export function SectionTitle({
@@ -15,6 +16,7 @@ export function SectionTitle({
   eyebrow,
   align = "center",
   className,
+  titleClassName,
 }: SectionTitleProps) {
   return (
     <div
@@ -30,7 +32,7 @@ export function SectionTitle({
           {eyebrow}
         </p>
       )}
-      <h2 className="font-heading text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
+      <h2 className={cn("font-heading text-3xl sm:text-4xl font-bold tracking-tight", titleClassName)}>
         {title}
       </h2>
       {subtitle && (
