@@ -20,7 +20,7 @@ export const cardConfig: CardConfig = {
   primaryCta: "Book Consultation",
   socials: [
     { platform: "Facebook", url: "https://www.facebook.com/AllureStudioCalbayog", icon: "Facebook" },
-    
+
     { platform: "Instagram", url: "https://instagram.com/allurestudioaestheticclinic", icon: "Instagram" },
 
     { platform: "TikTok", url: "https://tiktok.com/@@allure.studio.aesthetics", icon: "Tiktok" },
@@ -143,17 +143,19 @@ export const cardConfig: CardConfig = {
       id: "l1",
       name: "Calbayog City Samar Branch",
       address: "Nijaga Street, corner Umbria Street",
-      hours: "Mon-Fri: 9am - 6pm, Sat: 10am - 4pm",
+      hours: "Monday-Sunday 10am-8pm",
       mapUrl: "https://maps.app.goo.gl/ZAuN2RnKQ6Yis2MYA",
       timezone: "Asia/Manila",
+      phone: "0962-159-2092",
     },
     {
       id: "l2",
       name: "Catarman Northern Samar Branch",
       address: "Brgy. Mabolo, Bonifacio St, Travelax Pension House",
-      hours: "Mon-Fri: 10am - 7pm, Sat: 10am - 3pm",
+      hours: "Monday-Sunday 9:30am-7:30pm",
       mapUrl: "https://maps.app.goo.gl/SmjhfgNhQsqrJRLe7",
       timezone: "Asia/Manila",
+      phone: "0917-109-0236",
     },
   ],
   formFields: [

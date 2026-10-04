@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { MapPin, Clock, Navigation } from "lucide-react";
+import { MapPin, Clock, Navigation, Phone } from "lucide-react";
 import type { CardConfig } from "@/types/card";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
@@ -79,6 +79,14 @@ export function Locations({ config }: LocationsProps) {
                   <MapPin className="size-4 text-brand shrink-0 mt-0.5" />
                   <p className="text-sm text-charcoal/70">{location.address}</p>
                 </div>
+                {location.phone && (
+                  <div className="mt-2 flex items-start gap-2.5">
+                    <Phone className="size-4 text-brand shrink-0 mt-0.5" />
+                    <a href={`tel:${location.phone}`} className="text-sm text-brand">
+                      {location.phone}
+                    </a>
+                  </div>
+                )}
                 <div className="mt-2 flex items-start gap-2.5">
                   <Clock className="size-4 text-brand shrink-0 mt-0.5" />
                   <p className="text-sm text-charcoal/70">{location.hours}</p>
