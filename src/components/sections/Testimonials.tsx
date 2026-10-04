@@ -16,7 +16,7 @@ export function Testimonials({ config }: TestimonialsProps) {
         <SectionTitle title={sectionTitles.testimonials} subtitle="What our clients say about their experience." align="center" titleClassName="text-champagne" />
         <div className="flex items-start gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 no-scrollbar scroll-smooth snap-always">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="snap-center shrink-0 w-[88vw] sm:w-[420px] bg-white/4 backdrop-blur-sm border border-white/10 rounded-3xl p-7 sm:p-8 flex flex-col">
+            <div key={testimonial.id} className="snap-center shrink-0 w-[88vw] sm:w-105 bg-white/4 backdrop-blur-sm border border-white/10 rounded-3xl p-7 sm:p-8 flex flex-col">
               <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star key={i} className="size-3.5 fill-champagne text-champagne" />

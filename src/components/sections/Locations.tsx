@@ -82,7 +82,7 @@ export function Locations({ config }: LocationsProps) {
                   </h3>
                   <span
                     className={`shrink-0 text-[11px] font-semibold px-2 py-1 rounded-md ${
-                      isOpen ? "bg-brand/10 text-brand" : "bg-charcoal/5 text-charcoal/60"
+                      isOpen ? "bg-brand/10 text-green-600" : "bg-charcoal/5 text-red-600/60"
                     }`}
                   >
                     {isOpen ? "Open" : "Closed"}
